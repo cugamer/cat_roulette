@@ -1,7 +1,7 @@
 <h1>Cat Roulette 1.0</h1>
 
-<p><%= @image_url %></p>
+<p><%= get_post_image_url(@metadata) %></p>
 
-<img src="<%= @image_url %>">
+<img src="<%= get_post_image_url(@metadata) %>">
 
-<p>Posted by <a href="<%= @post_url %>" target="_blank"><%= @blog_name %></a></p>
+<p>Posted by <a href="<%= get_post_url(@metadata) %>" target="_blank"><%= get_post_blog_name(@metadata) %></a></p>
