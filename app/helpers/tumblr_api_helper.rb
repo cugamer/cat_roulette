@@ -3,7 +3,7 @@ module TumblrApiHelper
 
 
   def get_tumblr_sources
-    return ["catsncats.tumblr.com"]
+    return %w[ catsncats.tumblr.com catsinknots.tumblr.com getoutoftherecat.tumblr.com ]
   end
 
   def config_tumblr
@@ -17,30 +17,35 @@ module TumblrApiHelper
 
   def get_tumblr_account(accounts)
     target = Random.rand(accounts.length)
+    p accounts.length
+    p target
     return accounts[target]
   end
 
-  def get_image_url(source, number)
+  def get_image_metadata(source)
     client = Tumblr::Client.new
 
     postingAccount = client.blog_info(source)
     target = Random.rand(postingAccount["blog"]["total_posts"] - 1)
 
+    post = client.posts(source, :limit => 1, :offset => target)
 
-    post = client.posts("catsncats.tumblr.com", :limit => 1, :offset => target)
+    # Conditional in place to prevent return of an empty array if the post has no content.
+    if post["posts"] == []
+      p "Empty post conditional tripped ------------------------------------------------------"
+      return get_image_metadata(source)
+    end
 
     # return post["posts"][0]["photos"][0]["original_size"]["url"]
     return post["posts"]
   end
 
 
-  def get_image_alg
+  def get_image_metadata_alg
     config_tumblr
     accounts = get_tumblr_sources
     account = get_tumblr_account(accounts)
-    get_image_url(account, 1)
-
-
+    get_image_metadata(account)
   end
 
 end
