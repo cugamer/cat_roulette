@@ -1,7 +1,6 @@
 module TumblrApiHelper
   require 'tumblr_client'
 
-
   def get_tumblr_sources
     return %w[ catsncats.tumblr.com catsinknots.tumblr.com getoutoftherecat.tumblr.com ]
   end
@@ -32,11 +31,9 @@ module TumblrApiHelper
 
     # Conditional in place to prevent return of an empty array if the post has no content.
     if post["posts"] == []
-      p "Empty post conditional tripped ------------------------------------------------------"
       return get_image_metadata(source)
     end
 
-    # return post["posts"][0]["photos"][0]["original_size"]["url"]
     return post["posts"]
   end
 
@@ -51,9 +48,6 @@ module TumblrApiHelper
   def get_image_metadata_conf_pic
     post = get_image_metadata_alg
     if(post[0]["type"] != "photo")
-      
-      p post
-      p "--------------------------------Tripped --------------------------------------"
       return get_image_metadata_conf_pic
     end
     return post
