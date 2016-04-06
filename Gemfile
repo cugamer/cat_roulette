@@ -3,8 +3,6 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
-# Use PosgrreSQL as the database for Active Record
-gem 'pg', '~> 0.18.4'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -38,6 +36,8 @@ gem 'tumblr_client', '~> 0.8.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
 
 end
 
@@ -51,5 +51,10 @@ group :development do
   # Used for secrets.yml management
   gem 'capistrano', '~> 3.2.1'
   gem 'capistrano-secrets-yml', '~> 1.0.0'
+end
+
+group :production do
+  # Use PosgrreSQL as the database for Active Record
+  gem 'pg', '~> 0.18.4'
 end
 

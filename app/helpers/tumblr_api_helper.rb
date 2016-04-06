@@ -16,8 +16,6 @@ module TumblrApiHelper
 
   def get_tumblr_account(accounts)
     target = Random.rand(accounts.length)
-    p accounts.length
-    p target
     return accounts[target]
   end
 
