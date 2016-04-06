@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  root 'cat_pages#get'
+  root 'cat_pages#index'
 end

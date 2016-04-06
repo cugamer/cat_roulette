@@ -48,4 +48,15 @@ module TumblrApiHelper
     return get_image_metadata(account)
   end
 
+  def get_image_metadata_conf_pic
+    post = get_image_metadata_alg
+    if(post[0]["type"] != "photo")
+      
+      p post
+      p "--------------------------------Tripped --------------------------------------"
+      return get_image_metadata_conf_pic
+    end
+    return post
+  end
+
 end
