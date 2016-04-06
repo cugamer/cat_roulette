@@ -45,7 +45,7 @@ module TumblrApiHelper
     config_tumblr
     accounts = get_tumblr_sources
     account = get_tumblr_account(accounts)
-    get_image_metadata(account)
+    return get_image_metadata(account)
   end
 
 end

@@ -1,0 +1,2 @@
+module CatPagesHelper
+end
