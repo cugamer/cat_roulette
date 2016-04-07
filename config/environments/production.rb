@@ -78,8 +78,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.secret_key_base = ENV['SECRET_KEY_BASE']
-  config.tumblr_consumer_key = ENV['TUMBLR_CONSUMER_KEY']
-  config.tumblr_consumer_secret = ENV['TUMBLR_CONSUMER_SECRET']
-  config.tumblr_oauth_token = ENV['TUMBLR_OAUTH_TOKEN']
-  config.tumblr_oauth_token_secret = ENV['TUMBLR_OAUTH_TOKEN_SECRET']
+  Rails.application.secrets.tumblr_consumer_key = ENV['TUMBLR_CONSUMER_KEY']
+  Rails.application.secrets.tumblr_consumer_secret = ENV['TUMBLR_CONSUMER_SECRET']
+  Rails.application.secrets.tumblr_oauth_token = ENV['TUMBLR_OAUTH_TOKEN']
+  Rails.application.secrets.tumblr_oauth_token_secret = ENV['TUMBLR_OAUTH_TOKEN_SECRET']
 end
