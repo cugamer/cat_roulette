@@ -11,13 +11,6 @@ module TumblrApiHelper
       config.consumer_secret = Rails.application.secrets.tumblr_consumer_secret
       config.oauth_token = Rails.application.secrets.tumblr_oauth_token
       config.oauth_token_secret = Rails.application.secrets.tumblr_oauth_token_secret
-
-
-      p "---------------------------- outupt --------------------------------------"
-      p config.consumer_key
-      p config.consumer_secret
-      p config.oauth_token
-      p config.oauth_token_secret
     end
   end
 
