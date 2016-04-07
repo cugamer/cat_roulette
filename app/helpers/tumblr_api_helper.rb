@@ -14,10 +14,10 @@ module TumblrApiHelper
 
 
       p "---------------------------- outupt --------------------------------------"
-      p onfig.consumer_key
-      p onfig.consumer_secret
-      p onfig.oauth_token
-      p onfig.oauth_token_secret
+      p config.consumer_key
+      p config.consumer_secret
+      p config.oauth_token
+      p config.oauth_token_secret
     end
   end
 
