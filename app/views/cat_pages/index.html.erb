@@ -1,7 +1,24 @@
 <h1>Cat Roulette 1.0</h1>
 
-<p><%= get_post_image_url(@metadata) %></p>
 
-<img src="<%= get_post_image_url(@metadata) %>">
 
-<p>Posted by <a href="<%= get_post_url(@metadata) %>" target="_blank"><%= get_post_blog_name(@metadata) %></a></p>
+<div class="my-flipster">
+  <ul>
+  	<% @metadata.each do |cat| %>
+
+    	<li>
+    		<div class="cat-div">
+	    		<img src="<%= get_post_image_url(cat) %>" class="cat-pic" />
+	    		<p><a href="<%= get_post_url(cat) %>" target="_blank">Provided by <%= get_post_blog_name(cat) %></a></p>
+	    	</div>
+    	</li>
+
+  	<% end %>
+
+  </ul>
+</div>
+
+
+<script>
+    $('.my-flipster').flipster();
+</script>
