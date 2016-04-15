@@ -3,13 +3,13 @@
 
 
 <div class="my-flipster">
-  <ul>
+  <ul class="flip-items">
   	<% @metadata.each do |cat| %>
 
     	<li>
     		<div class="cat-div">
 	    		<img src="<%= get_post_image_url(cat) %>" class="cat-pic" />
-	    		<p><a href="<%= get_post_url(cat) %>" target="_blank">Provided by <%= get_post_blog_name(cat) %></a></p>
+	    		<p>Provided by <a href="<%= get_post_url(cat) %>" target="_blank"><%= get_post_blog_name(cat) %></a></p>
 	    	</div>
     	</li>
 
@@ -20,5 +20,21 @@
 
 
 <script>
-    $('.my-flipster').flipster();
+
+
+
+
+	var flipContainer = $('.my-flipster'),
+	    flipItemContainer = flipContainer.find('.flip-items'),
+	    flipItem = flipContainer.find('li');
+
+	flipContainer.flipster({
+	  itemContainer: flipItemContainer,
+	  itemSelector: flipItem,
+	  loop: 2,
+	  start: 2,
+	  style: 'infinite-carousel',
+	});
 </script>
+
+
