@@ -88,32 +88,60 @@
 }
 
 /* My custom css */
+	.flipster__item {
+	width: 400px;
+	}
+	.flipster__item--past-2 {
+	    left: -150px;	
+	}
+	.flipster__item--past-1 {
+	    left: -75px;	
+	}
+	.flipster__item--future-2 {
+	    left: 150px;	
+	}
+	.flipster__item--future-1 {
+	    left: 75px;	
+	}
+	.cat-pic {
+	max-height: 400px;
+		max-width: 400px !important;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.cat-div {
+		max-height: 400px;
+		max-width: 400px;
+	}
 
-.flipster__item {
-	width: 200px;
-}
-.flipster__item--past-2 {
-    left: -100px;	
-}
-.flipster__item--past-1 {
-    left: -50px;	
-}
-.flipster__item--future-2 {
-    left: 100px;	
-}
-.flipster__item--future-1 {
-    left: 50px;	
-}
+@media(max-width: 900px) {
+	.flipster__item {
+		width: 200px;
+	}
+	.flipster__item--past-2 {
+	    left: -100px;	
+	}
+	.flipster__item--past-1 {
+	    left: -50px;	
+	}
+	.flipster__item--future-2 {
+	    left: 100px;	
+	}
+	.flipster__item--future-1 {
+	    left: 50px;	
+	}
 
-.cat-pic {
-	max-height: 200px;
-	max-width: 200px !important;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
+	.cat-pic {
+		max-height: 200px;
+		max-width: 200px !important;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
 
-.cat-div {
-	max-height: 200px;
-	max-width: 200px;
+	.cat-div {
+		max-height: 200px;
+		max-width: 200px;
+	}
 }
