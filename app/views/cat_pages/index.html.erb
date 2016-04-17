@@ -16,6 +16,8 @@
   	<% end %>
 
   </ul>
+
+  <button type="button" id="wheel-spin">Spin the Wheel</button>
 </div>
 
 
@@ -42,6 +44,10 @@
 	};
 
 	spinTheWheel();
+
+	$("#wheel-spin").click(function(){
+		spinTheWheel();
+	})
 	
 </script>
 
