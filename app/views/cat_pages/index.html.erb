@@ -33,22 +33,16 @@
 	  buttons: true
 	});
 
-	// function doSetTimeout(delay, count) {
-	// 	setTimeout(function(){
-	// 		flipContainer.flipster('next');
-	// 		console.log(count)
-	// 	},
-	// 	delay)
-	// }
+	function spinTheWheel(){
+		steps = Math.floor(Math.random() * 20) + 80;
+		for (var i = 1; i <= steps; i++) {
+		    setTimeout(function() { flipContainer.flipster('next'); }, 
+		    	100 * i );
+		}
+		console.log(steps);
+	};
 
-	// for(i = 0; i < 100; i++){
-	// 	doSetTimeout(1000, i);
-	// }
-
-	for (var i = 1; i <= 100; i++) {
-	    setTimeout(function() { flipContainer.flipster('next'); }, 
-	    	100 * i );
-	}
+	spinTheWheel();
 	
 </script>
 
