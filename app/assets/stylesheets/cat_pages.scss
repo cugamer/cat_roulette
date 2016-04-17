@@ -28,8 +28,8 @@
 }
 .flipster--infinite-carousel .flipster__container,
 .flipster--infinite-carousel .flipster__item {
-  -webkit-transition: all 350ms ease-in-out;
-  transition: all 350ms ease-in-out;
+  -webkit-transition: all 10ms ease-in-out;
+  transition: all 10ms ease-in-out;
   -webkit-transition-timing-function: cubic-bezier(0.56, 0.12, 0.12, 0.98);
           transition-timing-function: cubic-bezier(0.56, 0.12, 0.12, 0.98);
 }
@@ -104,14 +104,14 @@
 	    left: 75px;	
 	}
 	.cat-pic {
-	max-height: 400px;
+		max-height: 400px;
 		max-width: 400px !important;
 		display: block;
 		margin-left: auto;
 		margin-right: auto;
 	}
 	.cat-div {
-		max-height: 400px;
+		/*max-height: 400px;*/
 		max-width: 400px;
 	}
 
