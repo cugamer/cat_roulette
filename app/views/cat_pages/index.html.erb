@@ -32,30 +32,21 @@
 	  style: 'infinite-carousel'
 	});
 
-	function spinTheWheel(minSpins){
+	var spinTheWheel = function(minSpins){
 		steps = Math.floor(Math.random() * 20) + minSpins;
 		for (var i = 1; i <= steps; i++) {
-		    setTimeout(function() { flipContainer.flipster('next'); }, 
-		    	100 * i );
+		    setTimeout(function() { 
+		    	flipContainer.flipster('next'); 
+		    }, 
+		    100 * i );
 		}
 	};
 
-	spinTheWheel(8);
-
-	$("#wheel-spin").click(function(){
-		spinTheWheel(8);
-		replacementData = getReplacementImageData("<%= cats_newimage_path %>");
-		randomNum = getRandomListPos();
-
-		replaceImage(randomNum, replacementData.image_url);
-		replaceBlogInfo(randomNum, replacementData.post_url, replacementData.blog_name)
-	});
 
 
-	function getReplacementImageData(url){
+	var getReplacementImageData = function(url){
 		var output;
 		var scriptURL = url;
-
 		$.ajax({
 			url: scriptURL,
 			type: 'get',
@@ -69,20 +60,32 @@
 		return output;
 	};
 
-	function replaceImage(targetPos, imageUrl){
+	var replaceImage = function(targetPos, imageUrl){
 		$("ul li:nth-child(" + targetPos + ") div div img").replaceWith('<img src=' + imageUrl + ' class="cat-pic">')
 	}
 
-	function replaceBlogInfo(targetPos, blogURL, blogName){
+	var replaceBlogInfo = function(targetPos, blogURL, blogName){
 		$("ul li:nth-child(" + targetPos + ") div div p a").replaceWith('<a href=' + blogURL + ' target="_blank">' + blogName + '</a>')
 	}
 
-	function getRandomListPos(){
-		var numFlipseterItems = $('.flipster__item').length;
-		var numToReplace = Math.floor(Math.random() * numFlipseterItems) + 1;
+	var getRandomPosition = function(maxNumber){
+		var maxNumber = maxNumber;
+		var numToReplace = Math.floor(Math.random() * maxNumber) + 1;
 		return numToReplace;
 	}
+
+	spinTheWheel(8);
+
+	$("#wheel-spin").click(function(){
+		spinTheWheel(8);
+		replacementData = getReplacementImageData("<%= cats_newimage_path %>");
+		var maxNum = $('.flipster__item').length;
+		randomNum = getRandomPosition(maxNum);
+
+		replaceImage(randomNum, replacementData.image_url);
+		replaceBlogInfo(randomNum, 
+			replacementData.post_url, 
+			replacementData.blog_name)
+	});
 	
 </script>
-
-
