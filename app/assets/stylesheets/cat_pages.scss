@@ -116,6 +116,9 @@
 	}
 
 @media(max-width: 900px) {
+	.my-flipster {
+		height: 300px;
+	}
 	.flipster__item {
 		width: 200px;
 	}
@@ -141,7 +144,6 @@
 	}
 
 	.cat-div {
-		max-height: 200px;
-		max-width: 200px;
+
 	}
 }

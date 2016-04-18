@@ -1,0 +1,28 @@
+html, body {
+	height: 100%;
+	background-color: #F5FAFA;
+	background: -webkit-linear-gradient(left top, #F5FAFA, #0099CC); /* For Safari 5.1 to 6.0 */
+  	background: -o-linear-gradient(bottom right, #F5FAFA, #0099CC); /* For Opera 11.1 to 12.0 */
+  	background: -moz-linear-gradient(bottom right, #F5FAFA, #0099CC); /* For Firefox 3.6 to 15 */
+  	background: linear-gradient(to bottom right, #F5FAFA, #0099CC);
+  	font-family: "Lato", sans-serif
+}
+h1 {
+	text-align: center;
+	background-color: #6D929B;
+	margin-top: 0;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-weight: 600;
+}
+
+.flipster__item--current {
+	padding: 3px;
+	border: 1px solid black;
+	border-radius: 3px;
+	background-color: #eee;
+}
+
+.image-post-data {
+	text-align: center;
+}

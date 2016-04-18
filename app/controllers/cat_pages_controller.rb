@@ -1,7 +1,7 @@
 class CatPagesController < ApplicationController
 	def index
 		@metadata = []
-		3.times do
+		5.times do
 			@metadata << get_image_metadata_conf_pic
 		end
 
