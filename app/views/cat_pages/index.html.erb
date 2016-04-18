@@ -17,8 +17,9 @@
 
 </div>
 
-<button type="button" id="wheel-spin">Spin the Wheel</button>
-
+<div id="button-holder">
+	<button type="button" id="wheel-spin" class="noselect">Spin the Wheel</button>
+</div>
 
 
 <script>
@@ -74,10 +75,10 @@
 		return numToReplace;
 	}
 
-	spinTheWheel(8);
+	spinTheWheel(40);
 
 	$("#wheel-spin").click(function(){
-		spinTheWheel(8);
+		spinTheWheel(40);
 		replacementData = getReplacementImageData("<%= cats_newimage_path %>");
 		var maxNum = $('.flipster__item').length;
 		randomNum = getRandomPosition(maxNum);
