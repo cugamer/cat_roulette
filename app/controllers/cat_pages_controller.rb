@@ -8,6 +8,10 @@ class CatPagesController < ApplicationController
 		render 'index'
 	end
 
+	def about
+
+	end
+
 	def serveSingleImage
 		metadata = get_image_metadata_conf_pic
 

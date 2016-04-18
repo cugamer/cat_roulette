@@ -7,6 +7,9 @@ html, body {
   	background: linear-gradient(to bottom right, #F5FAFA, #0099CC);
   	font-family: "Lato", sans-serif
 }
+
+#header {}
+
 h1 {
 	text-align: center;
 	background-color: #6D929B;
@@ -15,6 +18,21 @@ h1 {
 	padding-bottom: 10px;
 	margin-bottom: 0;
 	font-weight: 600;
+}
+
+#about-link {
+	float: right;
+	position: relative;
+	left: -25px;
+	top: -56px;
+	a {
+		font-size: 1.3em;
+	}
+}
+
+a {
+	text-decoration: none;
+	color: #000;
 }
 
 .flipster__item--current {
