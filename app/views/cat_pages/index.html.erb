@@ -32,29 +32,41 @@
 	  style: 'infinite-carousel'
 	});
 
-	function spinTheWheel(){
-		steps = Math.floor(Math.random() * 20) + 8;
+	function spinTheWheel(minSpins){
+		steps = Math.floor(Math.random() * 20) + minSpins;
 		for (var i = 1; i <= steps; i++) {
 		    setTimeout(function() { flipContainer.flipster('next'); }, 
 		    	100 * i );
 		}
 	};
 
-	spinTheWheel();
+	spinTheWheel(8);
 
 	$("#wheel-spin").click(function(){
-		console.log("clicked")
-		replaceImage(2, "https://41.media.tumblr.com/tumblr_ll7h4dmwEs1qhwmnpo1_1280.jpg");
-		replaceBlogInfo(2, "http://getoutoftherecat.tumblr.com/post/5844858415/get-out-of-there-cat-you-cannot-be-in-my-laundry", "getoutoftherecat")
+		spinTheWheel(8);
+		replacementData = getReplacementImageData("<%= cats_newimage_path %>");
+		randomNum = getRandomListPos();
+
+		replaceImage(randomNum, replacementData.image_url);
+		replaceBlogInfo(randomNum, replacementData.post_url, replacementData.blog_name)
 	});
 
 
-	function getReplacementImageData(){
-		$.get("<%= cats_newimage_path %>",
-			function(data, status){
-				console.log(data);
+	function getReplacementImageData(url){
+		var output;
+		var scriptURL = url;
+
+		$.ajax({
+			url: scriptURL,
+			type: 'get',
+			dataType: 'json',
+			async: false,
+			success: function(data){
+				output = data;
 			}
-		);
+		});
+
+		return output;
 	};
 
 	function replaceImage(targetPos, imageUrl){
@@ -62,16 +74,14 @@
 	}
 
 	function replaceBlogInfo(targetPos, blogURL, blogName){
-		$("ul li:nth-child(" + targetPos + ") div div p a").replaceWith('<a href=' + blogURL + ' target="_blank>' + blogName + '</a>')
+		$("ul li:nth-child(" + targetPos + ") div div p a").replaceWith('<a href=' + blogURL + ' target="_blank">' + blogName + '</a>')
 	}
 
 	function getRandomListPos(){
 		var numFlipseterItems = $('.flipster__item').length;
 		var numToReplace = Math.floor(Math.random() * numFlipseterItems) + 1;
+		return numToReplace;
 	}
-
-	getReplacementImageData();
-
 	
 </script>
 
