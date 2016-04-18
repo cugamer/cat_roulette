@@ -1,7 +1,7 @@
 <h1>Cat Roulette 1.0</h1>
 
 <div class="my-flipster">
-  <ul class="flip-items">
+  <ul class="flip-items" id="cat-carousel">
   	<% @metadata.each do |cat| %>
 
     	<li>
@@ -33,18 +33,18 @@
 	});
 
 	function spinTheWheel(){
-		steps = Math.floor(Math.random() * 20) + 80;
+		steps = Math.floor(Math.random() * 20) + 8;
 		for (var i = 1; i <= steps; i++) {
 		    setTimeout(function() { flipContainer.flipster('next'); }, 
 		    	100 * i );
 		}
-		console.log(steps);
 	};
 
 	spinTheWheel();
 
 	$("#wheel-spin").click(function(){
-		spinTheWheel();
+		console.log("clicked")
+		replaceImage(2, "https://40.media.tumblr.com/79751e7eb298512a67d7b90fce97582d/tumblr_mo1rnaOjSq1qhwmnpo1_500.png");
 	});
 
 
@@ -56,15 +56,17 @@
 		);
 	};
 
-	function replaceImage(newImageData){
+	function replaceImage(targetPos, imageUrl){
+		$("ul li:nth-child(" + targetPos + ") div div img").replaceWith('<img src=' + imageUrl + ' class="cat-pic">')
+
+	}
+
+	function getRandomListPos(){
 		var numFlipseterItems = $('.flipster__item').length;
-		console.log(numFlipseterItems)
-		var numToReplace = Math.floor(Math.random() * numFlipseterItems);
-		console.log(numToReplace)
+		var numToReplace = Math.floor(Math.random() * numFlipseterItems) + 1;
 	}
 
 	getReplacementImageData();
-	replaceImage();
 
 	
 </script>
