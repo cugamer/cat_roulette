@@ -8,6 +8,21 @@ module CatPagesHelper
 	end
 
 	def get_post_image_url(metadata)
-		return metadata[0]["photos"][0]["original_size"]["url"]
+		# ["original_size"]["url"]
+		# return metadata[0]["photos"][0]["alt_sizes"][0]["url"]\
+		return get_cat_image_in_range(metadata, 1, 300)
+	end
+
+	def get_cat_image_in_range(metadata, lower, upper)
+		images = metadata[0]["photos"][0]["alt_sizes"]
+		best_fit = {"width" => 1}
+
+		images.each do |img|
+			if Integer(img["width"]) > best_fit["width"] && Integer(img["width"]) > lower && Integer(img["width"]) < upper 
+				best_fit = img
+			end
+			p img
+		end
+		return best_fit
 	end
 end
