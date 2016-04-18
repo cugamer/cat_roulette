@@ -44,7 +44,8 @@
 
 	$("#wheel-spin").click(function(){
 		console.log("clicked")
-		replaceImage(2, "https://40.media.tumblr.com/79751e7eb298512a67d7b90fce97582d/tumblr_mo1rnaOjSq1qhwmnpo1_500.png");
+		replaceImage(2, "https://41.media.tumblr.com/tumblr_ll7h4dmwEs1qhwmnpo1_1280.jpg");
+		replaceBlogInfo(2, "http://getoutoftherecat.tumblr.com/post/5844858415/get-out-of-there-cat-you-cannot-be-in-my-laundry", "getoutoftherecat")
 	});
 
 
@@ -58,7 +59,10 @@
 
 	function replaceImage(targetPos, imageUrl){
 		$("ul li:nth-child(" + targetPos + ") div div img").replaceWith('<img src=' + imageUrl + ' class="cat-pic">')
+	}
 
+	function replaceBlogInfo(targetPos, blogURL, blogName){
+		$("ul li:nth-child(" + targetPos + ") div div p a").replaceWith('<a href=' + blogURL + ' target="_blank>' + blogName + '</a>')
 	}
 
 	function getRandomListPos(){
