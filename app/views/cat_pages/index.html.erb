@@ -1,7 +1,5 @@
 <h1>Cat Roulette 1.0</h1>
 
-
-
 <div class="my-flipster">
   <ul class="flip-items">
   	<% @metadata.each do |cat| %>
@@ -49,9 +47,25 @@
 		spinTheWheel();
 	});
 
-	function replaceImage(){
 
+	function getReplacementImageData(){
+		$.get("<%= cats_newimage_path %>",
+			function(data, status){
+				console.log(data);
+			}
+		);
 	};
+
+	function replaceImage(newImageData){
+		var numFlipseterItems = $('.flipster__item').length;
+		console.log(numFlipseterItems)
+		var numToReplace = Math.floor(Math.random() * numFlipseterItems);
+		console.log(numToReplace)
+	}
+
+	getReplacementImageData();
+	replaceImage();
+
 	
 </script>
 
