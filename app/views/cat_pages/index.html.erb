@@ -41,7 +41,7 @@
 		    setTimeout(function() { 
 		    	flipContainer.flipster('next'); 
 		    }, 
-		    100 * i );
+		    150 * i );
 		}
 	};
 
@@ -75,10 +75,10 @@
 		return numToReplace;
 	}
 
-	spinTheWheel(40);
+	spinTheWheel(30);
 
 	$("#wheel-spin").click(function(){
-		spinTheWheel(40);
+		spinTheWheel(30);
 		replacementData = getReplacementImageData("<%= cats_newimage_path %>");
 		var maxNum = $('.flipster__item').length;
 		randomNum = getRandomPosition(maxNum);
