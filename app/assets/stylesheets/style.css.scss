@@ -115,6 +115,11 @@ h1 {
 .cat-div {
 	max-width: 400px;
 }
+@media(max-width: 500px) {
+	.flipster__item--past-2, .flipster__item--future-2{
+	    display: none !important;	
+	}
+}
 
 @media(max-width: 900px) {
 	.my-flipster {
