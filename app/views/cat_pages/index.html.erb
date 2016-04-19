@@ -1,31 +1,31 @@
+<div id="roulette-content">
+	<div id="header">
+		<h1>Cat Roulette</h1>
 
-<div id="header">
-	<h1>Cat Roulette</h1>
+		<p id="about-link"><%= link_to "About", about_path %></p>
+	</div>
 
-	<p id="about-link"><%= link_to "About", about_path %></p>
+	<div class="my-flipster">
+	  <ul class="flip-items" id="cat-carousel">
+	  	<% @metadata.each do |cat| %>
+
+	    	<li>
+	    		<div class="cat-div">
+		    		<img src="<%= get_post_image_url(cat) %>" class="cat-pic" />
+		    		<p class="image-post-data">Provided by <a href="<%= get_post_url(cat) %>" target="_blank"><%= get_post_blog_name(cat) %></a></p>
+		    	</div>
+	    	</li>
+
+	  	<% end %>
+
+	  </ul>
+
+	</div>
+
+	<div id="button-holder">
+		<button type="button" id="wheel-spin" class="noselect">Spin the Wheel</button>
+	</div>
 </div>
-
-<div class="my-flipster">
-  <ul class="flip-items" id="cat-carousel">
-  	<% @metadata.each do |cat| %>
-
-    	<li>
-    		<div class="cat-div">
-	    		<img src="<%= get_post_image_url(cat) %>" class="cat-pic" />
-	    		<p class="image-post-data">Provided by <a href="<%= get_post_url(cat) %>" target="_blank"><%= get_post_blog_name(cat) %></a></p>
-	    	</div>
-    	</li>
-
-  	<% end %>
-
-  </ul>
-
-</div>
-
-<div id="button-holder">
-	<button type="button" id="wheel-spin" class="noselect">Spin the Wheel</button>
-</div>
-
 
 <script>
 	var flipContainer = $('.my-flipster'),
