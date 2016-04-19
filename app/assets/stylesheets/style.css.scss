@@ -19,16 +19,17 @@ h1 {
 }
 
 #about-link {
-	float: right;
-	position: relative;
-	left: -25px;
-	top: -56px;
+	position: absolute;
+	right: 30px;
+	top: 17px;
+	margin: 0;
+	display: block;
 	a {
 		font-size: 1.3em;
 	}
 }
 
-a {
+#header a {
 	text-decoration: none;
 	color: #000;
 }
